@@ -20,6 +20,9 @@ Style/StringLiterals:
 
 Style/NumericLiterals:
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
 # ===========
 
 # == Metrics ==
