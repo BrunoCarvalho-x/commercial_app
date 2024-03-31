@@ -15,6 +15,9 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
 Style/NumericLiterals:
   Enabled: false
 # ===========
@@ -35,7 +38,7 @@ Metrics/BlockLength:
 # =============
 
 # == RSpec ==
-RSpec/Rails/InferredSpecType:
+RSpecRails/InferredSpecType:
   Enabled: false
 
 RSpec/NestedGroups:
