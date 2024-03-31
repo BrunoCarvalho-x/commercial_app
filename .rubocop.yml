@@ -1,10 +1,61 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-performance
+  - rubocop-factory_bot
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.3.0
+  NewCops: enable
+
+# == Style ==
 Style/Documentation:
   Enabled: false
 
 Style/NumericLiterals:
   Enabled: false
+# ===========
+
+# == Metrics ==
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - db/**/*.rb
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - db/**/*.rb
 
 Metrics/BlockLength:
   Enabled: false
+# =============
+
+# == RSpec ==
+RSpec/Rails/InferredSpecType:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ImplicitSubject:
+  Enabled: false
+
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+
+RSpec/VariableName:
+  Enabled: true
+  Exclude:
+    - spec/requests/**/*.rb
+# ===========
+
