@@ -52,3 +52,5 @@ end
 gem 'coverband', '~> 6.0', require: false
 gem 'devise', '~> 4.9'
 gem 'omniauth', '~> 2.1'
+gem 'sassc', '~> 2.4'
+gem 'sassc-rails', '~> 2.1'
