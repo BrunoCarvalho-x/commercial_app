@@ -1,0 +1,51 @@
+<section id="login" class="session">
+  <div class="container h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-12 offset-lg-3 col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 text-center mb-5">
+                <%= image_tag "logo_imagem.png", class: "img-fluid" %>
+              </div>
+              <div class="col-12 px-2 px-lg-5">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+
+                  <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"seu@email.com", class:"form-control" %>
+                  </div>
+
+                  <div class="field mt-3">
+                    <%= f.label :password %><br />
+                    <%= f.password_field :password, placeholder:"Senha", class:"form-control" %>
+                  </div>
+
+                  <div class="field mt-1">
+                    <%= f.check_box :remember_me, id: "user_remember_me" %>
+                    <%= f.label :remember_me, "Lembrar-me", class: "mb-0 ml-2" %>
+                  </div>
+
+                  <div class="actions text-center mt-4">
+                    <%= f.submit "Entrar", class: "btn btn-outline-primary rounded text-uppercase" %>
+                  </div>
+
+                  <div class="actions text-center mt-3">
+                    <%= link_to "Ir para Registro", new_user_registration_path, class: "btn btn-outline-primary rounded text-uppercase" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div><br />
+          <div class="card-footer">
+            <small>Development by</small>&nbsp;&nbsp;
+            <small>
+              <a href="https://github.com/brunocarvalho-x" class="text-primary text-right">BrunoCarvalho-x</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
