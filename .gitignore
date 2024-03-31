@@ -39,3 +39,6 @@ coverage
 
 # Byebug
 .byebug_history
+
+# Node Modules
+node_modules
