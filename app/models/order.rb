@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  # belongs_to :user
+  belongs_to :user
 
   validates :client_name, presence: true
   validates :description, presence: true
