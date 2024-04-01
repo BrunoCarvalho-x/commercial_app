@@ -4,4 +4,6 @@ class User < ApplicationRecord
          :recoverable, :registerable,
          :rememberable, :timeoutable,
          :trackable, :validatable
+
+  has_many :orders
 end
