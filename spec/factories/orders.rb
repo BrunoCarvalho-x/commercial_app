@@ -5,5 +5,7 @@ FactoryBot.define do
     delivery_date { Faker::Date.forward(days: 30) }
     delivery_hour { Faker::Time.forward(days: 5, period: :evening).strftime('%H:%M') }
     value { Faker::Number.decimal(l_digits: 3, r_digits: 2) }
+
+    user
   end
 end
