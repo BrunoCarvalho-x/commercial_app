@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :financials
   resources :clients
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
