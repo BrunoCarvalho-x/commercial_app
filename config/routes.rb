@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :financials
+  get 'dashboard/index'
+  resources :orders
   resources :clients
+  resources :financials
+
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
     passwords: 'users/passwords',
@@ -9,10 +12,8 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
-  resources :orders
-
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Defines the root path route ("/")
-  root 'orders#index'
+  root 'dashboard#index'
 end

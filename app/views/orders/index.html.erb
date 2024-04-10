@@ -1,17 +1,58 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Orders</h1>
+<h3>Pedidos</h3>
 
-<div id="orders">
-  <% @orders.each do |order| %>
-    <%= order.client_name %>
-    <%= order.description %>
-    <%= order.delivery_date %>
-    <%= order.delivery_hour %>
-    <%= order.ready %>
-    <%= order.value %>
-    <%= link_to "Show this order", order %>
-  <% end %>
+<style>
+  .table-container {
+    width: 80%; /* Defina a largura desejada para a tabela */
+    margin: 0 auto; /* Centraliza a tabela na página */
+    border-spacing: 0; /* Garante que não haja espaço entre as células */
+    border: 2px solid #000; /* Adiciona uma borda sólida de 2px preta */
+    border-radius: 20px; /* Arredonda os cantos da borda */
+  }
+
+  .custom-table th {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto branco */
+    padding: 8px; /* Espaçamento interno */
+    text-align: center;
+  }
+
+  .custom-table td {
+    padding: 8px; /* Espaçamento interno */
+    border-bottom: 1px solid #ddd; /* Adiciona uma linha de divisão entre as linhas */
+    text-align: center;
+  }
+</style>
+
+<div class="table-container">
+  <table class="table table-sm custom-table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Entrega</th>
+        <th scope="col">Horário</th>
+        <th scope="col">Está pronto?</th>
+        <th scope="col">Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Assuming you have a variable 'data' containing your data -->
+      <% @orders.each do |order| %>
+        <tr>
+          <td class="tg-0lax"><%= order.id %></td>
+          <td class="tg-0lax"><%= order.client_name %></td>
+          <td class="tg-0lax"><%= order.description %></td>
+          <td class="tg-0lax"><%= order.delivery_date %></td>
+          <td class="tg-0lax"><%= order.delivery_hour %></td>
+          <td class="tg-0lax"><%= order.ready %></td>
+          <td class="tg-0lax"><%= order.value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= link_to "New order", new_order_path %>
