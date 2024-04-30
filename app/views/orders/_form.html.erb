@@ -1,48 +1,49 @@
-<%= form_with(model: order) do |form| %>
-  <% if order.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="form-container">
+    <%= form_with(model: order) do |form| %>
+      <% if order.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-        <% order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% order.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= form.label :client_name %>
-    <br>
-    <%= form.text_field :client_name %>
+      <div>
+        <%= form.text_field :client_name, placeholder: 'Nome do Cliente' %>
+      </div>
+      <br>
+      <div>
+        <%= form.text_area :description, placeholder: 'Descrição do Pedido' %>
+      </div>
+      <br>
+      <div>
+        <%= form.date_field :delivery_date, placeholder: 'Data de Entrega' %>
+      </div>
+      <br>
+      <div>
+        <%= form.text_field :delivery_hour, placeholder: 'Horário de Entrega' %>
+      </div>
+      <br>
+      <div>
+        <%= form.number_field :value, step: '0.01', placeholder: 'Valor' %>
+      </div>
+      <br>
+      <div>
+        <br>
+        <%= form.submit 'Confirmar' %>
+      </div>
+    <% end %>
   </div>
-  <br>
-  <div>
-    <%= form.label :description %>
-    <br>
-    <%= form.text_area :description %>
-  </div>
-  <br>
-  <div>
-    <%= form.label :delivery_date %>
-    <br>
-    <%= form.date_field :delivery_date %>
-  </div>
-  <br>
-  <div>
-    <%= form.label :delivery_hour %>
-    <br>
-    <%= form.text_field :delivery_hour %>
-  </div>
-  <br>
-  <div>
-    <%= form.label :value %>
-    <br>
-    <%= form.number_field :value, step: '0.01' %>
-  </div>
-  <br>
-  <div>
-    <br>
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>
+</html>

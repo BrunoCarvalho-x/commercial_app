@@ -32,9 +32,7 @@ Metrics/AbcSize:
     - db/**/*.rb
 
 Metrics/MethodLength:
-  Enabled: true
-  Exclude:
-    - db/**/*.rb
+  Enabled: false
 
 Metrics/BlockLength:
   Enabled: false
@@ -65,3 +63,5 @@ RSpec/VariableName:
     - spec/requests/**/*.rb
 # ===========
 
+Naming/AccessorMethodName:
+  Enabled: false
