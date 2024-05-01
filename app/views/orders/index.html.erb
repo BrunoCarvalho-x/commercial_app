@@ -18,24 +18,37 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Cliente</th>
-        <th scope="col">Descrição</th>
+        <th scope="col">Ações</th>
         <th scope="col">Entrega</th>
         <th scope="col">Horário</th>
-        <th scope="col">Está pronto?</th>
         <th scope="col">Valor</th>
+        <th scope="col">Está pronto?</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Assuming you have a variable 'data' containing your data -->
       <% @orders.each do |order| %>
         <tr>
           <td class="tg-0lax"><%= order.id %></td>
           <td class="tg-0lax"><%= order.client_name %></td>
-          <td class="tg-0lax"><%= order.description %></td>
-          <td class="tg-0lax"><%= order.delivery_date %></td>
+          <td class="tg-0lax">     
+            <%= link_to "#", class: "btn p-0 text-success table_button" do %>
+             <i class="bi bi-card-list"></i>
+            <% end %>
+
+            <%= link_to "#", class: "btn p-0 text-sucess table_button" do %>
+              <i class="bi bi-printer"></i>
+            <% end %>
+
+            <%= link_to "#", class: "btn p-0 text-danger table_button" do %>
+              <i class="bi bi-trash"></i>
+            <% end %>
+          </td>
+          <td class="tg-0lax"><%= order.delivery_date.strftime("%d/%m/%Y") %></td>
           <td class="tg-0lax"><%= order.delivery_hour %></td>
-          <td class="tg-0lax"><%= order.ready %></td>
           <td class="tg-0lax"><%= order.value %></td>
+          <td class="tg-0lax">
+            <%= check_box_tag '', class: "table-checkbox" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
