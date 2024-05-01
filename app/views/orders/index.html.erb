@@ -1,6 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h3>Pedidos</h3>
+<div class="card-body py-3">
+ <div class="row">
+  <div class="col-12 col-md-6 my-auto text-center text-md-left">
+    <h4>Pedidos</h4>
+  </div>
+
+  <div class="col-12 col-md-6 my-auto text-center text-md-right">
+    <%= link_to "Novo Pedido", new_order_path, class: "btn btn-success" %>
+  </div>
+ </div>
+</div>
 
 <style>
   .table-container {
@@ -12,7 +22,7 @@
   }
 
   .custom-table th {
-    background-color: #4CAF50; /* Cor de fundo verde */
+    background-color: #333333; /* Cor de fundo verde */
     color: white; /* Cor do texto branco */
     padding: 8px; /* Espaçamento interno */
     text-align: center;
@@ -22,6 +32,14 @@
     padding: 8px; /* Espaçamento interno */
     border-bottom: 1px solid #ddd; /* Adiciona uma linha de divisão entre as linhas */
     text-align: center;
+  }
+
+  .custom-table th:last-child {
+    border-radius: 0 15px 0 0;
+  }
+
+  .custom-table th:first-child {
+    border-radius: 15px 0 0 0;
   }
 </style>
 
@@ -54,5 +72,3 @@
     </tbody>
   </table>
 </div>
-
-<%= link_to "New order", new_order_path %>
