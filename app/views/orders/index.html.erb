@@ -45,7 +45,9 @@
           </td>
           <td class="tg-0lax"><%= order.delivery_date.strftime("%d/%m/%Y") %></td>
           <td class="tg-0lax"><%= order.delivery_hour %></td>
-          <td class="tg-0lax"><%= order.value %></td>
+          <td class="tg-0lax">
+            <%= number_to_currency(order.value, unit: '', separator: ',', delimiter: '.', format: '%n%u') %>
+          </td>
           <td class="tg-0lax">
             <%= check_box_tag '', class: "table-checkbox" %>
           </td>
