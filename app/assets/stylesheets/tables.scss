@@ -26,3 +26,13 @@
 .custom-table th:first-child {
   border-radius: 15px 0 0 0;
 }
+
+.table_button {
+  font-size: 110%;
+}
+
+.table-checkbox {
+  height: 16px; /* Altura do checkbox */
+  width: 16px; /* Largura do checkbox */
+  cursor: pointer;
+}
