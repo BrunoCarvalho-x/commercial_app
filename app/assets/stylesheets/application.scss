@@ -3,3 +3,25 @@
 @import "login";
 @import "forms";
 @import "tables";
+
+body {
+  background-color: #ECCFD1;
+}
+
+.centered-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Centraliza o texto horizontalmente */
+  display: flex;
+  flex-direction: column; /* Define a direção da flexbox como coluna */
+}
+
+.content-wrapper {
+  margin-bottom: 20px; /* Adiciona espaçamento entre os elementos */
+}
+
+.centered-text {
+  font-family: Verdana, sans-serif;
+}

@@ -1,14 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Financials</h1>
-
-<div id="financials">
-  <% @financials.each do |financial| %>
-    <%= render financial %>
-    <p>
-      <%= link_to "Show this financial", financial %>
-    </p>
-  <% end %>
+<div class="centered-image">
+  <div class="content-wrapper">
+    <h1 class="centered-text">Esta página ainda está em Desenvolvimento</h1>
+  </div>
+  <div class="content-wrapper">
+    <%= image_tag "under_development.png", class: "img-fluid" %>
+  </div>
 </div>
-
-<%= link_to "New financial", new_financial_path %>

@@ -1,14 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Clients</h1>
-
-<div id="clients">
-  <% @clients.each do |client| %>
-    <%= render client %>
-    <p>
-      <%= link_to "Show this client", client %>
-    </p>
-  <% end %>
+<div class="centered-image">
+  <div class="content-wrapper">
+    <h1 class="centered-text">Esta página ainda está em Desenvolvimento</h1>
+  </div>
+  <div class="content-wrapper">
+    <%= image_tag "under_development.png", class: "img-fluid" %>
+  </div>
 </div>
-
-<%= link_to "New client", new_client_path %>
