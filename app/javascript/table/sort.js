@@ -19,6 +19,7 @@ export function tableSort() {
   sortColumn(columnIndex, newOrder); // Chama a Função de Ordenação com os parametros.
 }
 
+// Ordena a Coluna Clicada.
 function sortColumn(columnIndex, sortOrder) {
   // Seleciona todas as linhas da tabela, exceto o cabeçalho.
   let rows = $('.custom-table tbody tr').get();
@@ -43,7 +44,9 @@ function sortColumn(columnIndex, sortOrder) {
   });
 }
 
+// Define os tipos de Dados.
 function defineSortValues(value) {
+  // Verifica qual tipo de Dado está sendo tratado.
   if (isTime(value)) {
     const [hours, minutes] = value.split(':').map(parseFloat);
     return hours * 60 + minutes;
@@ -54,10 +57,12 @@ function defineSortValues(value) {
   }
 }
 
+// Verifica se o valor é Hora.
 function isTime(value) {
   return /^\d{1,2}:\d{2}$/.test(value);
 }
 
+// Verifica se o valor é Número.
 function isNumber(value) {
   return !isNaN(parseFloat(value.replace(/\./g, '').replace(',', '.')));
 }
