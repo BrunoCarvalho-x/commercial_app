@@ -36,3 +36,14 @@
   width: 16px; /* Largura do checkbox */
   cursor: pointer;
 }
+
+.sortable .asc::after {
+  position: absolute;
+  top: 0;
+  right: -1.2em;
+  opacity: 0; /* Inicialmente invisível */
+}
+
+.sortable .asc::after {
+  opacity: 1; /* Torna visível quando a coluna está classificada em ordem ascendente */
+}

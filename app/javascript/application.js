@@ -3,6 +3,6 @@
 import '@hotwired/turbo-rails';
 import 'controllers';
 
-$(document).on('click', function () {
-  console.log('jquery está funcionando');
-});
+import { tableSort } from './table/sort.js';
+
+$('.sortable').click(tableSort);
