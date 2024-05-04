@@ -29,7 +29,11 @@ function sortColumn(columnIndex, sortOrder) {
     const A = defineSortValues($(a).find('td').eq(columnIndex).text());
     const B = defineSortValues($(b).find('td').eq(columnIndex).text());
 
-    return sortOrder === 'asc' ? A - B : B - A;
+    if (typeof A === 'string') {
+      return sortOrder === 'asc' ? A.localeCompare(B) : B.localeCompare(A);
+    } else {
+      return sortOrder === 'asc' ? A - B : B - A;
+    }
   };
 
   // Ordena as linhas com base na função de comparação.
@@ -55,7 +59,7 @@ function defineSortValues(value) {
   } else if (isNumber(value)) {
     return parseFloat(value.replace(/\./g, '').replace(',', '.'));
   } else {
-    return value.toUpperCase();
+    return value;
   }
 }
 
