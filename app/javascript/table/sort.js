@@ -50,6 +50,8 @@ function defineSortValues(value) {
   if (isTime(value)) {
     const [hours, minutes] = value.split(':').map(parseFloat);
     return hours * 60 + minutes;
+  } else if (isDate(value)) {
+    return Number(value.split('/').reverse().join(''));
   } else if (isNumber(value)) {
     return parseFloat(value.replace(/\./g, '').replace(',', '.'));
   } else {
@@ -60,6 +62,11 @@ function defineSortValues(value) {
 // Verifica se o valor é Hora.
 function isTime(value) {
   return /^\d{1,2}:\d{2}$/.test(value);
+}
+
+// Verifica se o valor é uma Data.
+function isDate(value) {
+  return /^\d{2}\/\d{2}\/\d{4}$/.test(value);
 }
 
 // Verifica se o valor é Número.
