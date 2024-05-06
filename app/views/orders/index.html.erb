@@ -12,21 +12,31 @@
  </div>
 </div>
 
+<%= content_tag(:div, class: "row mb-3") do %>
+  <%= content_tag(:div, class: "col-5 mb-2 d-flex justify-content-center align-items-center") do %>
+    <%= label_tag(:itemsPerPage, "Itens por página:", style: "margin-right: 10px;") %>
+    <%= select_tag(:itemsPerPage, options_for_select([5, 10, 25, 50, 100], params[:itemsPerPage]), id: "itemsPerPageSelect") %>
+
+  <% end %>
+<% end %>
+
+
 <div class="table-container">
-  <table class="table table-sm custom-table">
+  <%= content_tag(:table, class: "table table-sm custom-table") do %>
     <thead>
       <tr>
-        <th scope="col" class="sortable" id= "orders-id"># </th>
-        <th scope="col" class="sortable" id= "orders-client-name">Cliente </th>
-        <th scope="col" id= "orders-actions">Ações </th>
-        <th scope="col" class="sortable" id= "orders-delivery-date">Entrega </th>
-        <th scope="col" class="sortable" id= "orders-delivery-hour">Horário </th>
-        <th scope="col" class="sortable" id= "orders-value">Valor </th>
-        <th scope="col" class="sortable" id= "orders-ready">Está pronto? </th>
+        <th scope="col" class="sortable" style="width: 50px;"># </th>
+        <th scope="col" class="sortable" id= "client_name"  style="width: 150px;">Cliente </th>
+        <th scope="col" style="width: 100px;">Ações </th>
+        <th scope="col" class="sortable" style="width: 100px;">Entrega </th>
+        <th scope="col" class="sortable" style="width: 100px;">Horário </th>
+        <th scope="col" class="sortable" style="width: 100px;">Valor </th>
+        <th scope="col" class="sortable" style="width: 50px;">Está pronto? </th>
+
       </tr>
     </thead>
     <tbody>
-      <% @orders.each do |order| %>
+      <% @orders.offset((params[:page].to_i - 1)*@items_per_page).limit(@items_per_page).each do |order| %>
         <tr>
           <td class="tg-0lax"><%= order.id %></td>
           <td class="tg-0lax"><%= order.client_name %></td>
@@ -39,7 +49,7 @@
               <i class="bi bi-printer"></i>
             <% end %>
 
-            <%= link_to "#", class: "btn p-0 text-danger table_button" do %>
+            <%= link_to order_path(order), method: :delete, class: "btn p-0 text-danger table_button", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer excluir o pedido n° #{order.id}?"}  do %>
               <i class="bi bi-trash"></i>
             <% end %>
           </td>
@@ -54,5 +64,14 @@
         </tr>
       <% end %>
     </tbody>
-  </table>
+  <% end %>
+</div>
+
+
+<div class="pagination-container mt-3">
+  <%= content_tag(:div, class: "pagination") do %>
+    <% (1..(@orders.count / @items_per_page).ceil).each do |page| %>
+      <%= link_to(page, "#", class: "page-link", data: { page: page }) %>
+    <% end %>
+  <% end %>
 </div>

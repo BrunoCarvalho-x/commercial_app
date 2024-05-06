@@ -4,6 +4,7 @@
   border-spacing: 0; /* Garante que não haja espaço entre as células */
   border: 2px solid #000; /* Adiciona uma borda sólida de 2px preta */
   border-radius: 20px; /* Arredonda os cantos da borda */
+  background-color: white;
 }
 
 .custom-table th {
@@ -47,3 +48,30 @@
 .sortable .asc::after {
   opacity: 1; /* Torna visível quando a coluna está classificada em ordem ascendente */
 }
+
+.pagination-container {
+  width: 100%; /* Ocupa toda a largura da página */
+  display: flex;
+  justify-content: center; /* Alinha horizontalmente ao centro */
+}
+
+.pagination {
+  margin-top: 5px;
+  background-color: white;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 7px 14px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}

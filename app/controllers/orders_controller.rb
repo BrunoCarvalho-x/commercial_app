@@ -3,7 +3,12 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
+    # Permitir o parâmetro itemsPerPage
+    params.permit(:page, :itemsPerPage)
     @orders = Order.all
+
+    # Se itemsPerPage estiver presente na URL, use-o para limitar o número de registros retornados
+    @items_per_page = params[:itemsPerPage].presence.to_i || 5
   end
 
   # GET /orders/1 or /orders/1.json
